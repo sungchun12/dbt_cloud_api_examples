@@ -23,3 +23,11 @@ DBT_CLOUD_API_TOKEN=<your dbt Cloud api key/token>
 ACCOUNT_ID=<account id>
 
 ```
+
+## How to Run
+
+```bash
+# prints account and user activity in a snapshot to terminal output
+# exports csv and json local files to persist results
+python3 account_activity.py
+```
