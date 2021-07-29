@@ -61,11 +61,13 @@ df_users_groups = (
 )
 print(df_users_groups)
 
-# export dataframe as csv
+# export dataframe as LOCAL csv
 df_users_groups.to_csv("account_activity_snapshot.csv", sep="|", encoding="utf-8")
 
-# export dataframe to json file
+# export dataframe to LOCAL json file
 df_users_groups_json = df_users_groups.to_json(orient="records")
+
+# TODO: add functionality to export to cloud storage bucket
 
 with open("account_activity_snapshot.json", "w") as f:
     f.write(df_users_groups_json)
