@@ -2,6 +2,8 @@
 
 This repo is a hub for API examples that'll help you programmatically interact with dbt Cloud!
 
+## Setup your development environment
+
 ```bash
 # setup a venv
 python3 -m venv venv
