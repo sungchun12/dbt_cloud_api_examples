@@ -11,6 +11,13 @@ pip3 install -r requirements.txt
 
 ```bash
 # create environment variables related to your dbt Cloud account
-source dbt_cloud_env_vars_secrets.sh
+# in a .env file, example below
+
+# You can find this token in your dbt Cloud profile or Account Settings
+DBT_CLOUD_API_TOKEN=<your dbt Cloud api key/token>
+
+# https://cloud.getdbt.com/#/accounts/16173/projects/26588/dashboard/
+# you can find this number in the cloud.getdbt.com url
+ACCOUNT_ID=<account id>
 
 ```
