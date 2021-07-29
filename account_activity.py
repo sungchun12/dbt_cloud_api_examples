@@ -11,7 +11,7 @@ load_dotenv()
 DBT_CLOUD_API_TOKEN = os.getenv("DBT_CLOUD_API_TOKEN")
 ACCOUNT_ID = os.getenv("ACCOUNT_ID")
 
-
+# construct the api endpoints and headers
 base_url = "https://cloud.getdbt.com/api/v2"
 url_groups = "/accounts/" + ACCOUNT_ID + "/users/"
 headers = {"Authorization": "Token " + DBT_CLOUD_API_TOKEN + ""}
@@ -60,3 +60,12 @@ df_users_groups = (
     .apply(",".join)
 )
 print(df_users_groups)
+
+# export dataframe as csv
+df_users_groups.to_csv("account_activity_snapshot.csv", sep="|", encoding="utf-8")
+
+# export dataframe to json file
+df_users_groups_json = df_users_groups.to_json(orient="records")
+
+with open("account_activity_snapshot.json", "w") as f:
+    f.write(df_users_groups_json)
