@@ -37,6 +37,7 @@ for i in payload_groups["data"]:
                     permissions["license_type"],
                     i["last_login"],
                     groups["name"],
+                    str(groups["sso_mapping_groups"])
                 ]
             )
 
@@ -51,10 +52,11 @@ df_users_groups = (
             "License Type",
             "Last Login",
             "Groups",
+            "SSO Mapping Groups",
         ],
     )
     .groupby(
-        ["Account ID", "Full Name", "User ID", "Email", "License Type", "Last Login"],
+        ["Account ID", "Full Name", "User ID", "Email", "License Type", "Last Login","SSO Mapping Groups"],
         as_index=False,
     )["Groups"]
     .apply(",".join)
@@ -71,3 +73,7 @@ df_users_groups_json = df_users_groups.to_json(orient="records")
 
 with open("account_activity_snapshot.json", "w") as f:
     f.write(df_users_groups_json)
+
+# export full json payload from the API
+with open("payload_groups.json", "w") as f:
+    f.write(str(payload_groups))
