@@ -64,7 +64,7 @@ df_users_groups = (
 print(df_users_groups)
 
 # export dataframe as LOCAL csv
-df_users_groups.to_csv("account_activity_snapshot.csv", sep="|", encoding="utf-8")
+df_users_groups.to_csv("account_activity_snapshot.csv", sep=",", encoding="utf-8")
 
 # export dataframe to LOCAL json file
 df_users_groups_json = df_users_groups.to_json(orient="records")
