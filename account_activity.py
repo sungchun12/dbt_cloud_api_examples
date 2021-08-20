@@ -75,5 +75,6 @@ with open("account_activity_snapshot.json", "w") as f:
     f.write(df_users_groups_json)
 
 # export full json payload from the API
+payload_groups = json.dumps(payload_groups)
 with open("payload_groups.json", "w") as f:
     f.write(str(payload_groups))
